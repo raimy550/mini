@@ -1,0 +1,23 @@
+<!--pages/user/user.wxml-->
+<view class='container'>
+  <view class='profile-info'>
+    <image class='avatar' src='{{userInfo.avatarUrl}}'></image>
+    <text class='name'>{{userInfo.nickName}}</text>
+  </view>
+
+  <view class='user-menu'>
+    <view class='item'>
+      <text class="txt">我的订单</text>
+    </view>
+
+    <view class='item'>
+      <text class="txt">我的购物车</text>
+    </view>
+
+    <view class='item'>
+      <text class="txt">设置</text>
+    </view>
+
+    
+  </view>
+</view>

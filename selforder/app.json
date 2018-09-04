@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/menu/menu",
+    "pages/order/index/index",
+    "pages/user/user",
+    "pages/index/index"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "欣吃货",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "black",
+    "selectedColor": "#b4282d",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/menu/menu",
+        "text": "首页",
+        "iconPath": "pages/res/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "pages/res/images/ic_menu_choice_pressed.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/res/images/ic_menu_me_nor.png",
+        "selectedIconPath": "pages/res/images/ic_menu_me_pressed.png"
+      }
+    ]
+  }
+}
