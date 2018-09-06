@@ -1,4 +1,5 @@
-// pages/order/index/index.js
+// pages/menu/menu.js
+const app = getApp()
 Page({
 
   /**
@@ -12,10 +13,12 @@ Page({
     ],
     selected: 0,
     toView: "id0",
-    cost: 600,
+    cost: 0,
     fooditem_title: 25,
     fooditem_content: 170,
     menuSrcollTop: [],
+    trolleyNumb: 0,
+    foodScroolHeight: 0,
     menu: [{
         "typeName": "快餐类",
         "id": "id0",
@@ -173,7 +176,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    wx.request({
+      url: 'www.baidu.com',
+    })
   },
 
   /**
@@ -186,51 +191,97 @@ Page({
   initFoodTypeScrollTop: function() {
     let menu = this.data.menu;
     let menuSrcollTop = this.data.menuSrcollTop;
-    
-    function ObjStory(id, scrollTop){
+
+    function ObjStory(id, scrollTop) {
       this.id = id
       this.scrollTop = scrollTop
-    } 
+    }
 
     var windowWidth
+    var windowHeight
     wx.getSystemInfo({
       success: function(res) {
         windowWidth = res.windowWidth
+        windowHeight = res.windowHeight
+        app.globalData.windowWidth = windowWidth
+        app.globalData.windowHeight = windowHeight
       },
     })
-    console.log("menu.length = " + menu.length + " windowwidth=" + windowWidth)
+    this.data.foodScroolHeight = windowHeight * 0.77 * 0.9 * 0.95
+
+
+    console.log("windowwidth=" + windowWidth + " windowHeight=" + windowHeight + " foodScroolHeight" + this.data.foodScroolHeight)
 
     for (let i = 0; i < menu.length; i++) {
       var writer = new ObjStory("", 0)
       writer.id = menu[i].id
       if (i > 0) {
-        writer.scrollTop = menuSrcollTop[i-1].scrollTop+(menu[i - 1].menuContent.length * 170 + 25) * windowWidth / 750
+        writer.scrollTop = menuSrcollTop[i - 1].scrollTop + (menu[i - 1].menuContent.length * 170 + 25) * windowWidth / 750
       } else {
         writer.scrollTop = 0
       }
       menuSrcollTop[i] = writer
-      console.log("index:" + i + " id:" + menuSrcollTop[i].id + " scrollTop:" + menuSrcollTop[i].scrollTop);
+      console.log("index:" + i + " id:" + menuSrcollTop[i].id + " scrollTop:" + menuSrcollTop[i].scrollTop)
     }
 
     this.setData({
       menuSrcollTop: menuSrcollTop
     })
+
   },
 
   onGoodsScroll: function(e) {
     console.log(e.detail)
     var index = this.data.selected
-    let menuSrcollTop = this.data.menuSrcollTop
-    for (var i = 0; i < menuSrcollTop.length;i++){
-      if (i + 1 <= menuSrcollTop.length){
+    var menuSrcollTop = this.data.menuSrcollTop
+    for (var i = 0; i < menuSrcollTop.length; i++) {
+      if (i + 1 <= menuSrcollTop.length) {
         if (menuSrcollTop[i].scrollTop < e.detail.scrollTop && menuSrcollTop[i + 1].scrollTop > e.detail.scrollTop) {
           index = i
         }
       }
-      
+
     }
+    var curTop = e.detail.scrollTop + this.data.foodScroolHeight
+    var maxTop = e.detail.scrollHeight
+    console.log("curTop:" + curTop + " maxTop:" + maxTop + " app.globalData.windowwidth:" + app.globalData.windowWidth)
+    if (curTop+1 < maxTop) {
+      this.setData({
+        selected: index
+      })
+    }
+
+  },
+
+  addToTrolley: function(e) {
+    var info = this.data.menu;
+    var num = this.data.trolleyNumb;
+    var foodItem = info[e.currentTarget.dataset.menuindex].menuContent[e.currentTarget.dataset.index];
+    foodItem.numb++
+    num++;
+    var sum = this.data.cost + foodItem.price;
     this.setData({
-      selected: index
+      menu: info,
+      trolleyNumb: num,
+      cost: sum
+    })
+  },
+
+  removeFromTrolley: function(e) {
+    var info = this.data.menu;
+    var num = this.data.trolleyNumb;
+
+    var foodItem = info[e.currentTarget.dataset.menuindex].menuContent[e.currentTarget.dataset.index];
+    var sum = this.data.cost - foodItem.price;
+    if (foodItem.numb > 0) {
+      foodItem.numb--
+        num--;
+    }
+
+    this.setData({
+      menu: info,
+      trolleyNumb: num,
+      cost: sum
     })
   }
 })

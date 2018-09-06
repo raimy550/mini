@@ -1,12 +1,11 @@
-/* pages/order/index/index.wxss */
+/* pages/menu/menu.wxss */
 
 page {
   width: 100%;
   height: 100%;
 }
 
-
-.custom-nav{
+.custom-nav {
   width: 100%;
   height: 128rpx;
   background: white;
@@ -16,7 +15,7 @@ page {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 260rpx;
+  height: 23%;
 }
 
 .adcontent .swiper {
@@ -36,34 +35,42 @@ page {
   height: 25%;
 }
 
-.info .position{
+.info .position {
   color: #ff6f06;
   font-size: 30rpx;
   margin-left: 20rpx;
   text-align: center;
 }
 
-.info .content{
+.info .content {
   color: #656565;
   margin-left: 50rpx;
   font-size: 20rpx;
   text-align: center;
 }
 
-.menucontent {
+.menuPay{
+  display: flex;
+  height: 77%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.menuPay .menucontent {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 870rpx;
-  background:white;
+  height: 90%;
+  background: white;
 }
 
 .menucontent .menuList {
   display: flex;
   flex-direction: column;
   width: 125rpx;
-  height: 870rpx;
-  background-color: #F1F1F1;
+  height: 100%;
+  background: #f1f1f1;
   align-items: center;
 }
 
@@ -84,7 +91,7 @@ page {
   border-bottom: 1rpx solid #dadada;
 }
 
-.menuList .menuselected{
+.menuList .menuselected {
   height: 110rpx;
   width: 125rpx;
   position: relative;
@@ -97,31 +104,30 @@ page {
   background-color: white;
 }
 
-
 .menucontent .foodList {
   display: flex;
   flex-direction: column;
-  height: 870rpx;
+  height: 100%;
   width: 100%;
   background: white;
 }
 
-.foodList .typeName{
+.foodList .typeName {
   display: flex;
   align-items: center;
   margin-left: 10rpx;
-  height: 80rpx;
+  height: 5%;
   width: 100%;
   font-size: 30rpx;
   background: white;
   color: #323232;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.foodList .srcollFood{
+.foodList .srcollFood {
   display: flex;
   flex-direction: column;
-  height: 670rpx;
+  height: 95%;
   width: 100%;
   background: #ececec;
 }
@@ -136,7 +142,6 @@ page {
 .food {
   /* position: relative; */
   display: flex;
- 
   height: 170rpx;
   border-bottom: 1rpx solid #ececec;
   background: white;
@@ -158,7 +163,7 @@ page {
 
 .food .name {
   font-size: 30rpx;
-  color: #323232
+  color: #323232;
 }
 
 .food .sales {
@@ -170,39 +175,43 @@ page {
   font-size: 30rpx;
   color: #ff3637;
   position: absolute;
-  bottom: 20rpx;
+  bottom: 16rpx;
 }
 
 .food-numb {
-  height: 40rpx;
-  width: 130rpx;
+  height: 52rpx;
+  width: 200rpx;
   display: flex;
   justify-content: flex-end;
   margin-top: 115rpx;
   margin-right: 30rpx;
   line-height: 40rpx;
   font-size: 25rpx;
-  color: #323232
+  color: #323232;
 }
 
 .food-numb .add, .food-numb .remove {
-  width: 40rpx;
-  height: 40rpx;
+  width: 52rpx;
+  height: 52rpx;
   border-radius: 30rpx;
+}
+
+.food-numb .text {
+  width: 60rpx;
+  height: 52rpx;
+  font-size: 30rpx;
   text-align: center;
+  line-height: 52rpx;
+  color: #323232;
+  font-weight: bold;
 }
 
-
-.footer{
+.menuPay .footer {
   display: flex;
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom:0;
-  height: 100rpx;
+  height: 10%;
 }
 
-.footer .howMuch{
+.footer .howMuch {
   position: relative;
   flex: 1;
   font-size: 28rpx;
@@ -211,7 +220,7 @@ page {
   padding-left: 130rpx;
 }
 
-.howMuch .img{
+.howMuch .img {
   position: absolute;
   height: 106rpx;
   width: 106rpx;
@@ -221,8 +230,23 @@ page {
   display: flex;
 }
 
+.howMuch .numb {
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  background: red;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: white;
+  text-align: center;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  left: 100rpx;
+  top: -16rpx;
+  border-radius: 20rpx;
+}
 
-.howMuch .cost{
+.howMuch .cost {
   color: red;
   font-size: 50rpx;
   line-height: 100rpx;
@@ -230,18 +254,16 @@ page {
   width: 100rpx;
 }
 
-.footer .pay{
-  width: 200rpx;
+.footer .pay {
+  width: 251rpx;
   text-align: center;
   line-height: 100rpx;
   color: white;
   font-size: 30rpx;
-  background: #CCCCCC;
+  background: #ccc;
 }
 
-
-.footer.active .pay{
-  background: #FFD161;
-  color: black;
-  
+.footer.active .pay {
+  background: #58c417;
+  color: white;
 }
