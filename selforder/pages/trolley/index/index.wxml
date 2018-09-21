@@ -1,0 +1,74 @@
+<!--pages/trolley/index/index.wxml-->
+<import src="../../template/commlayouts.wxml" />
+<scroll-view class='scrollContent' scroll-y="true">
+  <view hidden='{{!empty}}' class='empty'>
+    <image class='image' src='../../image/tolley_empty.png' mode='aspectFit'></image>
+    <view class='text1'>购物车竟然是空的</view>
+    <view class='text2'>再忙， 也要记得吃饭哦~</view>
+    <view class='ops'>
+      <view class='opleft' bindtap='onTurnMenu'>去逛逛</view>
+      <view class='opright' bindtap='onTurnCollect'>查看收藏</view>
+    </view>
+  </view>
+
+  <view hidden='{{empty}}'>
+    <view class='title'>
+      <view class='left'>已选择餐品</view>
+      <view>C26</view>
+      <view class='right'>人数 2
+        <image class='img' src='/pages/image/chose_people.png'></image>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='item'>
+        <view class='info'>
+          <view class='name'>辣子鸡片肉</view>
+          <view class='price'>￥666.98</view>
+          <view class='checkPack'>
+            <checkbox-group bindchange="itemPackChange">
+              <checkbox checked="{{pack}}">打包</checkbox>
+            </checkbox-group>
+          </view>
+          <view class='numb'>1</view>
+        </view>
+
+        <!-- <template is="trolley_adddel" data="{{menuindex,index,itema}}"/> -->
+        <view class="{{pack? 'view_show':'view_hide'}}">
+          <view class='packInfo'>
+            <view class='shop'>
+              <view>在店吃</view>
+              <view style='position:absolute;right:0rpx;bottom:15rpx;'>
+                <template is="trolley_adddel" data="{{menuindex,index,item}}" />
+              </view>
+            </view>
+            <view class='pack'>
+              <view>打包</view>
+              <view style='position:absolute;right:0rpx;bottom:15rpx;'>
+                <template is="trolley_adddel" data="{{menuindex,index,item}}" />
+              </view>
+            </view>
+
+            <view class='canhe'>
+              <view class='name'>餐盒</view>
+              <view class='price'>￥1</view>
+              <view hidden="{{hide}}" class='checkPack'></view>
+              <view class='numb'>1</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='total'>
+        <text>共 4 份餐品，含 2 份打包</text>
+        <view class='clean' bindtap='onCleanTrolley'>
+          <image class='img' src='/pages/image/trolley_clean.png' />
+          <view>清空购物车</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view hidden='{{empty}}'>
+<bottom-price hide-trolley="{{true}}" trolley-numb="{{trolleyNumb}}" price-value="{{cost}}" next-text="去结算" bindtrolleyevent="onTrolley"/>
+</view>

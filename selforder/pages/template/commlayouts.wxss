@@ -1,0 +1,89 @@
+.food-numb {
+  height: 52rpx;
+  width: 200rpx;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+
+.food-numb .add, .food-numb .remove {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 30rpx;
+}
+
+.food-numb .text {
+  width: 60rpx;
+  height: 52rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 52rpx;
+  color: #323232;
+  font-weight: bold;
+}
+
+/* .footer {
+  position: absolute;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  display: flex;
+  height: 98rpx;
+}
+
+.footer .howMuch {
+  position: relative;
+  flex: 1;
+  font-size: 28rpx;
+  background: white;
+  line-height: 100rpx;
+  padding-left: 130rpx;
+}
+
+.howMuch .img {
+  position: absolute;
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 100rpx;
+  left: 20rpx;
+  top: -16rpx;
+  display: flex;
+}
+
+.howMuch .numb {
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  background: red;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: white;
+  text-align: center;
+  left: 100rpx;
+  top: -16rpx;
+  border-radius: 20rpx;
+}
+
+.howMuch .cost {
+  color: red;
+  font-size: 50rpx;
+  line-height: 100rpx;
+  height: 100%;
+  width: 100rpx;
+}
+
+.footer .pay {
+  width: 251rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: white;
+  font-size: 30rpx;
+  background: #ccc;
+}
+
+.footer.active .pay {
+  background: #58c417;
+  color: white;
+} */

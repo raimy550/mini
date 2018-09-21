@@ -1,0 +1,29 @@
+<!--pages/components/bottom-price/bottom-price.wxml-->
+<view class="footer {{priceValue!=0?'active':''}}">
+    <view class="howMuch">
+      <view wx:if="{{!hideTrolley}}" class="img" style="background:{{priceValue!=0?'#FFD161':'#E7E7E7'}};">
+        <image src="/pages/image/trolley.png" style="width:106rpx;height:106rpx;" bindtap='onTrolley' data-type="trolley"></image>
+      </view>
+      <view wx:if="{{!hideTrolley}}" class='numb' hidden="{{trolleyNumb==0}}">{{trolleyNumb}}</view>
+      <view class="cost" hidden="{{priceValue==0}}">￥{{priceValue}}</view>
+    </view>
+    <view class="pay" bindtap='onDoNext'>{{priceValue!=0? nextText:'15元起送'}}</view>
+  </view>
+
+<!-- ep: -->
+<!-- 
+.json:
+"usingComponents": {
+    "bottom-price": "/pages/components/bottom-price/bottom-price"
+  } 
+.js:
+onTrolley: function(e) {
+    if(e.detail.event == "trolley"){
+     
+    } else if (e.detail.event == "next"){
+        //DoNext
+    }
+   
+  },
+  .xml:
+  <bottom-price hide-trolley="{{false}}" trolley-numb="{{trolleyNumb}}" price-value="{{cost}}" next-text="去结算" bindtrolleyevent="onTrolley"/> -->

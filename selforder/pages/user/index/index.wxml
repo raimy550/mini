@@ -1,0 +1,22 @@
+<!--pages/user/index/index.wxml-->
+<view class='profile-info'>
+
+  <view class='info'>
+    <image class='img' src='/pages/image/no_pic.png'></image>
+    <view class='txtInfo'>
+      <view class='name'>Sailing123456</view>
+      <view class='userInfo'>个人信息</view>
+    </view>
+  </view>
+  <image class='navRight' src='/pages/image/btn_right.png'></image>
+</view>
+<view style='background:#f800c1;width:100%;height:20rpx;'></view>
+
+<view class='menu' bindtap='onTurnItem'>
+<block wx:for="{{menu}}">
+  <view class='menuItem' data-index="{{index}}">
+    <image class='icon' src='{{menu[index].icon}}'></image>
+    <view >{{menu[index].name}}</view>
+  </view>
+</block>
+</view>

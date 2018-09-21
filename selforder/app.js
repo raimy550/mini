@@ -1,11 +1,13 @@
 //app.js
+var testData = require('/utils/testdata.js')
+var myLog = require('/utils/log.js')
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    this.globalData.homeData = testData.getTestData();
     // 登录
     wx.login({
       success: res => {
@@ -33,10 +35,18 @@ App({
       }
     })
   },
+  
+  log: function(info){
+    this.globalData.log.logD(info);
+  },
+
   globalData: {
+    log: myLog,
     userInfo: null,
     windowWidth: 0,
-    windowHeight:0
-  },
+    windowHeight:0,
+    troleey:null,
+    homeData:null
+  }
   
 })

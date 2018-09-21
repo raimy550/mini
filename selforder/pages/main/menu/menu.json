@@ -1,1 +1,10 @@
-{}
+{
+  "usingComponents": {
+    "bottom-price": "/pages/components/bottom-price/bottom-price"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "ÐÀ³Ô»õ",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default"
+}

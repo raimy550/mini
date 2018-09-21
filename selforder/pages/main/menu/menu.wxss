@@ -1,14 +1,9 @@
 /* pages/menu/menu.wxss */
+@import "../../template/commlayouts.wxss";
 
 page {
   width: 100%;
   height: 100%;
-}
-
-.custom-nav {
-  width: 100%;
-  height: 128rpx;
-  background: white;
 }
 
 .adcontent {
@@ -54,7 +49,6 @@ page {
   height: 77%;
   width: 100%;
   flex-direction: column;
-  justify-content: flex-end;
 }
 
 .menuPay .menucontent {
@@ -74,12 +68,6 @@ page {
   align-items: center;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-
 .menuList .menu {
   height: 110rpx;
   width: 125rpx;
@@ -89,6 +77,20 @@ page {
   font-size: 28rpx;
   color: #656565;
   border-bottom: 1rpx solid #dadada;
+}
+
+.menu .menuNumb, .menuselected .menuNumb{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  background: red;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: white;
+  text-align: center;
+  border-radius: 30rpx;
+  right: 5rpx;
+  top: 5rpx;
 }
 
 .menuList .menuselected {
@@ -129,141 +131,80 @@ page {
   flex-direction: column;
   height: 95%;
   width: 100%;
-  background: #ececec;
+  background: white;
 }
 
-.foodList .title {
+.srcollFood .title {
   padding: 15rpx;
-  height: 25rpx;
-  line-height: 25rpx;
-  font-size: 25rpx;
+  height: 65rpx;
+  line-height: 30rpx;
+  font-size: 29rpx;
+  font-weight: bold;
 }
 
-.food {
-  /* position: relative; */
+.srcollFood .food {
+  position: relative;
   display: flex;
-  height: 170rpx;
-  border-bottom: 1rpx solid #ececec;
+  height: 201rpx;
   background: white;
 }
 
 .food .img {
   margin-left: 10rpx;
-  width: 120rpx;
-  height: 120rpx;
-  align-self: center;
+  width: 136rpx;
+  height: 136rpx;
 }
 
-.food-info {
+.food .food-info {
   position: relative;
-  padding-top: 25rpx;
   padding-left: 15rpx;
-  flex: 1;
+  height: 100%;
 }
 
-.food .name {
+.food-info .name {
   font-size: 30rpx;
-  color: #323232;
-}
-
-.food .sales {
-  font-size: 20rpx;
-  color: #989898;
-}
-
-.food .price {
-  font-size: 30rpx;
-  color: #ff3637;
-  position: absolute;
-  bottom: 16rpx;
-}
-
-.food-numb {
-  height: 52rpx;
-  width: 200rpx;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 115rpx;
-  margin-right: 30rpx;
-  line-height: 40rpx;
-  font-size: 25rpx;
-  color: #323232;
-}
-
-.food-numb .add, .food-numb .remove {
-  width: 52rpx;
-  height: 52rpx;
-  border-radius: 30rpx;
-}
-
-.food-numb .text {
-  width: 60rpx;
-  height: 52rpx;
-  font-size: 30rpx;
-  text-align: center;
-  line-height: 52rpx;
   color: #323232;
   font-weight: bold;
 }
 
-.menuPay .footer {
+.food-info .sales {
   display: flex;
-  height: 10%;
+  font-size: 22rpx;
+  color: #989898;
 }
 
-.footer .howMuch {
-  position: relative;
-  flex: 1;
-  font-size: 28rpx;
-  background: white;
-  line-height: 100rpx;
-  padding-left: 130rpx;
-}
-
-.howMuch .img {
-  position: absolute;
-  height: 106rpx;
-  width: 106rpx;
-  border-radius: 100rpx;
-  left: 20rpx;
-  top: -16rpx;
-  display: flex;
-}
-
-.howMuch .numb {
-  position: absolute;
-  height: 30rpx;
-  width: 30rpx;
-  background: red;
+.food-info .priceType {
+  margin-top: 20rpx;
+  height: 25rpx;
+  width: 83rpx;
   font-size: 20rpx;
-  line-height: 30rpx;
-  color: white;
   text-align: center;
-  padding-left: 5rpx;
-  padding-right: 5rpx;
-  left: 100rpx;
-  top: -16rpx;
-  border-radius: 20rpx;
+  line-height: 25rpx;
+  color: #ff6f06;
+  border-radius: 5rpx;
+  border: 1rpx solid #ff6f06;
 }
 
-.howMuch .cost {
-  color: red;
-  font-size: 50rpx;
-  line-height: 100rpx;
-  height: 100%;
-  width: 100rpx;
-}
-
-.footer .pay {
-  width: 251rpx;
+.food-info .price {
+  position: absolute;
+  bottom: 40rpx;
+  height: 40rpx;
   text-align: center;
-  line-height: 100rpx;
-  color: white;
-  font-size: 30rpx;
-  background: #ccc;
+  line-height:40rpx; 
+  display: flex;
+  
 }
 
-.footer.active .pay {
-  background: #58c417;
-  color: white;
+.price .realPrice{
+  color: #ff3637;
+  font-size: 24rpx;
+  font-weight:bold;
+}
+
+.price .originalPrice{
+  padding-top: 3rpx;
+  padding-left: 10rpx;
+  color: #989898;
+  font-size: 20rpx;
+  text-decoration: line-through;
 }

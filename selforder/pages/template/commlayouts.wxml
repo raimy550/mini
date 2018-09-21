@@ -1,0 +1,23 @@
+<template name="trolley_adddel">
+ <view class="food-numb">
+                <image src='../../image/sub.png' class="remove" bindtap="removeFromTrolley" hidden="{{item.numb==0}}" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
+                <text class="text" hidden="{{item.numb==0}}">{{item.numb}}</text>
+                <image src='../../image/add.png' class="add" bindtap="addToTrolley" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
+              </view>
+</template>
+
+
+<!-- <template name="trolley_bottom">
+<view class="footer {{cost!=0?'active':''}}">
+    <view class="howMuch">
+      <view wx:if="{{!hideTrolley}}" class="img" style="background:{{cost!=0?'#FFD161':'#E7E7E7'}};">
+        <image src="/pages/image/trolley.png" style="width:106rpx;height:106rpx;" bindtap='turnTrolley'></image>
+      </view>
+      <view wx:if="{{!hideTrolley}}" class='numb' hidden="{{trolleyNumb==0}}">{{trolleyNumb}}</view>
+      <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
+    </view>
+    <view class="pay">{{cost!=0?'去结算':'15元起送'}}</view>
+  </view>
+</template> -->
+
+

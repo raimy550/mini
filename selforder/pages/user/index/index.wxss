@@ -1,0 +1,66 @@
+/* pages/user/index/index.wxss */
+.profile-info{
+  display: flex;
+  height: 217rpx;
+  align-items: center;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  justify-content: space-between;
+}
+
+.profile-info .info{
+  display: flex;
+}
+
+.info .img{
+    height: 128rpx;
+    width: 128rpx;
+    border-radius: 50%;
+}
+
+.info .txtInfo{
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.txtInfo .name{
+  display: block;
+  font-size: 24rpx;
+  color: #323232;
+
+}
+
+.txtInfo .userInfo{
+  display: block;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #323232;
+}
+
+.profile-info .navRight{
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.menu{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.menuItem{
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  color: #323232;
+  border-bottom: 1rpx solid #e7e7e7;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.menuItem .icon{
+  height: 58rpx;
+  width: 58rpx;
+}

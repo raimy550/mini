@@ -6,119 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     selected: 0,
     toView: "id0",
     cost: 0,
-    fooditem_title: 25,
-    fooditem_content: 170,
+    fooditem_title: 65,
+    fooditem_content: 201,
     menuSrcollTop: [],
     trolleyNumb: 0,
     foodScroolHeight: 0,
-    menu: [{
-        "typeName": "快餐类",
-        "id": "id0",
-        "menuContent": [{
-            "name": "炸鸡",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 15,
-            "numb": 0
-          },
-          {
-            "name": "汉堡",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 10,
-            "numb": 0
-          },
-          {
-            "name": "鸡翅",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 11,
-            "numb": 0
-          },
-          {
-            "name": "薯条",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 32,
-            "numb": 0
-          }
-        ]
-      },
-      {
-        "typeName": "盖浇饭类",
-        "id": "id1",
-        "menuContent": [{
-            "name": "土豆牛肉盖浇饭",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 9,
-            "numb": 0
-          },
-          {
-            "name": "肉末茄子盖浇饭",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 21,
-            "numb": 0
-          },
-          {
-            "name": "番茄炒蛋盖浇饭",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 50,
-            "numb": 0
-          }
-        ]
-      },
-      {
-        "typeName": "养生粥类",
-        "id": "id2",
-        "menuContent": [{
-            "name": "桂圆莲子粥",
-            "src": "http://i4.piimg.com/null.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 15,
-            "numb": 0
-          },
-          {
-            "name": "皮蛋瘦肉粥",
-            "src": "http://i4.piimg.com/601998/da9e00c0bccd6fb0.jpg",
-            "sales": 22,
-            "rating": 3,
-            "price": 12,
-            "numb": 0
-          }
-        ]
-      },
-      {
-        "typeName": "小吃类",
-        "id": "id3",
-        "menuContent": [{
-          "name": "肉夹馍",
-          "src": "http://i4.piimg.com/601998/473847a250bb0186.jpg",
-          "sales": 22,
-          "rating": 3,
-          "price": 4,
-          "numb": 0
-        }]
-      }
-    ]
+    homeData:{},
+    shopInfo:{},
+    hideTrolley: false,
+    menu: []
 
   },
 
@@ -126,7 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.initHomeData()
   },
 
   /**
@@ -146,9 +45,9 @@ Page({
   turnMenu: function(e) {
     this.setData({
       selected: e.currentTarget.dataset.index,
-      toView: this.data.menu[e.currentTarget.dataset.index].id
+      toView: this.data.menu[e.currentTarget.dataset.index].category_id
     })
-    console.log(e.currentTarget.dataset.index + ":" + this.data.toView);
+    app.log(e.currentTarget.dataset.index + ":" + this.data.toView);
   },
 
   /**
@@ -188,6 +87,35 @@ Page({
 
   },
 
+  initHomeData: function() {
+    var menuArry = [];
+    var menuinfo = app.globalData.homeData.menuinfo
+    for (var i = 0; i < menuinfo.length; i++) {
+      var menuinfoItem = menuinfo[i]
+      var menuItem = {}
+      menuItem["category_id"] = menuinfoItem.category_id
+      menuItem["category_name"] = menuinfoItem.category_name
+      menuItem["type"] = menuinfoItem.type
+      menuItem["food_list"] = menuinfoItem.food_list
+      menuItem["numb"] =0
+      for (var j = 0; j < menuItem.food_list.length; j++) {
+        var foodItem = menuItem.food_list[j]
+        foodItem["numb"] = 0
+      }
+      menuArry.push(menuItem)
+
+      var shop_info = app.globalData.homeData.shopinfo
+      var home_data = app.globalData.homeData
+
+      this.setData({
+        menu: menuArry,
+        shopInfo: shop_info,
+        homeData: home_data
+      })
+    }
+
+  },
+
   initFoodTypeScrollTop: function() {
     let menu = this.data.menu;
     let menuSrcollTop = this.data.menuSrcollTop;
@@ -214,9 +142,9 @@ Page({
 
     for (let i = 0; i < menu.length; i++) {
       var writer = new ObjStory("", 0)
-      writer.id = menu[i].id
+      writer.id = menu[i].category_id
       if (i > 0) {
-        writer.scrollTop = menuSrcollTop[i - 1].scrollTop + (menu[i - 1].menuContent.length * 170 + 25) * windowWidth / 750
+        writer.scrollTop = menuSrcollTop[i - 1].scrollTop + (menu[i - 1].food_list.length * this.data.fooditem_content + this.data.fooditem_title) * windowWidth / 750
       } else {
         writer.scrollTop = 0
       }
@@ -231,21 +159,23 @@ Page({
   },
 
   onGoodsScroll: function(e) {
-    console.log(e.detail)
+    // console.log(e.detail)
     var index = this.data.selected
     var menuSrcollTop = this.data.menuSrcollTop
     for (var i = 0; i < menuSrcollTop.length; i++) {
-      if (i + 1 <= menuSrcollTop.length) {
+      if (i < menuSrcollTop.length - 1) {
         if (menuSrcollTop[i].scrollTop < e.detail.scrollTop && menuSrcollTop[i + 1].scrollTop > e.detail.scrollTop) {
           index = i
         }
+      } else if (i == (menuSrcollTop.length - 1) && menuSrcollTop[i].scrollTop < e.detail.scrollTop) {
+        index = i
       }
 
     }
     var curTop = e.detail.scrollTop + this.data.foodScroolHeight
     var maxTop = e.detail.scrollHeight
-    console.log("curTop:" + curTop + " maxTop:" + maxTop + " app.globalData.windowwidth:" + app.globalData.windowWidth)
-    if (curTop+1 < maxTop) {
+    // console.log("curTop:" + curTop + " maxTop:" + maxTop + " app.globalData.windowwidth:" + app.globalData.windowWidth)
+    if (curTop + 1 < maxTop) {
       this.setData({
         selected: index
       })
@@ -254,12 +184,16 @@ Page({
   },
 
   addToTrolley: function(e) {
-    var info = this.data.menu;
-    var num = this.data.trolleyNumb;
-    var foodItem = info[e.currentTarget.dataset.menuindex].menuContent[e.currentTarget.dataset.index];
+    var info = this.data.menu
+    var num = this.data.trolleyNumb
+    var menuItem = info[e.currentTarget.dataset.menuindex]
+    var foodItem = menuItem.food_list[e.currentTarget.dataset.index]
     foodItem.numb++
-    num++;
-    var sum = this.data.cost + foodItem.price;
+    menuItem.numb++;
+      num++;
+    var price = this.data.homeData.custominfo.is_vip == 1 ? foodItem.food_price.vip_price : foodItem.food_price.original_price
+    var sum = (this.data.cost * 10 + price * 10) / 10
+    
     this.setData({
       menu: info,
       trolleyNumb: num,
@@ -270,18 +204,40 @@ Page({
   removeFromTrolley: function(e) {
     var info = this.data.menu;
     var num = this.data.trolleyNumb;
-
-    var foodItem = info[e.currentTarget.dataset.menuindex].menuContent[e.currentTarget.dataset.index];
-    var sum = this.data.cost - foodItem.price;
+    var menuItem = info[e.currentTarget.dataset.menuindex]
+    var foodItem = menuItem.food_list[e.currentTarget.dataset.index]
+    var price = this.data.homeData.custominfo.is_vip == 1 ? foodItem.food_price.vip_price : foodItem.food_price.original_price
+    var sum = (this.data.cost * 10 - price * 10) / 10;
     if (foodItem.numb > 0) {
       foodItem.numb--
-        num--;
+      menuItem.numb--
+        num--
     }
 
     this.setData({
       menu: info,
       trolleyNumb: num,
       cost: sum
+    })
+  },
+  onTrolley: function(e) {
+    if(e.detail.event == "trolley"){
+      wx.navigateTo({
+        url: '/pages/trolley/index/index'
+      })
+    } else if (e.detail.event == "next"){
+        //DoNext
+    }
+   
+  },
+
+  turnFoodDetail: function(e) {
+    var info = this.data.menu
+    var menuItem = info[e.currentTarget.dataset.menuindex]
+    var foodItem = menuItem.food_list[e.currentTarget.dataset.index]
+    
+    wx.navigateTo({
+      url: '/pages/main/fooddetail/fooddetail?food_detail=' + encodeURI(JSON.stringify(foodItem))
     })
   }
 })

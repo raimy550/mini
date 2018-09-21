@@ -1,8 +1,9 @@
 <!--pages/menu/menu.wxml-->
 <!-- 广告 -->
+<import src="../../template/commlayouts.wxml"/>
 <view class='adcontent'>
   <swiper indicator-dots='true' autoplay='true' interval='5000' class='swiper'>
-    <block wx:for="{{imgUrls}}" wx:key="">
+    <block wx:for="{{shopInfo.img_list}}" wx:key="">
       <swiper-item>
         <image src="{{item}}" class='item' mode='center'></image>
       </swiper-item>
@@ -18,30 +19,36 @@
     <!-- 菜单 -->
     <scroll-view class="menuList" scroll-y="true">
       <block wx:for="{{menu}}" wx:key="">
-        <view class="menu{{index==selected?'selected':''}}" data-index="{{index}}" catchtap="turnMenu">{{item.typeName}}</view>
+        <view class="menu{{index==selected?'selected':''}}" data-index="{{index}}" catchtap="turnMenu">{{item.category_name}}
+        <view class='menuNumb' hidden="{{menu[index].numb==0}}">{{menu[index].numb}}</view>
+        </view>
 
       </block>
     </scroll-view>
     <view class='foodList'>
       <!-- 食品类型 -->
-      <view class='typeName'>{{menu[selected].typeName}}</view>
+      <view class='typeName'>{{menu[selected].category_name}}</view>
       <!-- 食品列表 -->
       <scroll-view class="srcollFood" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" bindscroll="onGoodsScroll">
         <block wx:for="{{menu}}" wx:for-index="menuindex" wx:key="">
-          <view id="{{menu[menuindex].id}}" class="title">{{menu[menuindex].typeName}}</view>
-          <block wx:for="{{menu[menuindex].menuContent}}" wx:key="">
+          <view id="{{menu[menuindex].category_id}}" class="title">{{menu[menuindex].category_name}}</view>
+          <block wx:for="{{menu[menuindex].food_list}}" wx:key="">
             <view class="food">
-              <image class="img" src="{{item.src}}"></image>
+              <image class="img" bindtap='turnFoodDetail' src="{{item.food_img_list}}" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
               <view class="food-info">
-                <view class="name">{{item.name}}</view>
-                <view class="sales">月售 {{item.sales}}赞 {{item.rating}}
+                <view class="name">{{item.food_name}}</view>
+                <view class="sales">
+                <view>月售{{item.food_num_mon}}</view>
+                <view style="padding-left:20rpx;">赞{{item.praise_num}}</view>
                 </view>
-                <view class="price">￥ {{item.price}}</view>
+                <view class="priceType" hidden='{{homeData.custominfo.is_vip!=1}}'>会员价</view>
+                <view class="price">
+                  <view class='realPrice'>￥{{homeData.custominfo.is_vip==1? item.food_price.vip_price : item.food_price.original_price}}</view>
+                  <view class='originalPrice' hidden='{{homeData.custominfo.is_vip!=1}}'>￥{{item.food_price.original_price}}</view>
+                </view>
               </view>
-              <view class="food-numb">
-                <image src='../../image/sub.png' class="remove" bindtap="removeFromTrolley" hidden="{{item.numb==0}}" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
-                <text class="text" hidden="{{item.numb==0}}">{{item.numb}}</text>
-                <image src='../../image/add.png' class="add" bindtap="addToTrolley" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
+              <view style='position:absolute;right:30rpx;bottom:40rpx;'>
+              <template is="trolley_adddel" data="{{menuindex,index,item}}"/>
               </view>
             </view>
           </block>
@@ -49,14 +56,6 @@
       </scroll-view>
     </view>
   </view>
-  <view class="footer {{cost!=0?'active':''}}">
-    <view class="howMuch">
-      <view class="img" style="background:{{cost!=0?'#FFD161':'#E7E7E7'}};">
-        <image src="/pages/image/trolley.png" style="width:106rpx;height:106rpx;"></image>
-      </view>
-      <view class='numb' hidden="{{trolleyNumb==0}}">{{trolleyNumb}}</view>
-      <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
-    </view>
-    <view class="pay">{{cost!=0?'去结算':'15元起送'}}</view>
-  </view>
+  <!-- <template is="trolley_bottom" data="{{trolleyNumb,cost}}"/> -->
+  <bottom-price hide-trolley="{{hideTrolley}}" trolley-numb="{{trolleyNumb}}" price-value="{{cost}}" next-text="去结算" bindtrolleyevent="onTrolley"/>
 </view>

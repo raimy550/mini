@@ -1,0 +1,82 @@
+<!--pages/main/fooddetail/fooddetail.wxml-->
+<scroll-view class='scrollContent' scroll-y="true">
+  <swiper autoplay='false' circular='true' class='foodImgs'>
+    <block wx:for="{{foodDetail.food_img_list}}" wx:key="">
+      <swiper-item>
+        <view class='foodImgs'>
+          <image src="{{item}}" class='img' mode='scaleToFill'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='foodInfo'>
+    <view class='nameOps'>
+      <view class='name'>{{foodDetail.food_name}}</view>
+      <view class='ops'>
+        <image src='/pages/image/detail_good_n.png' class='op'></image>
+        <image src='/pages/image/detail_share_n.png' class='op'></image>
+        <image src='/pages/image/detail_collect_n.png' class='op'></image>
+      </view>
+    </view>
+
+    <view class='sales'>
+      <view>月售 {{foodDetail.food_num_mon}}</view>
+      <view style='margin-left:20rpx'>好评率 {{foodDetail.evaluation.good_rate*100}}%</view>
+    </view>
+    <view class="priceType">会员价</view>
+    <view class='priceTrolley'>
+      <view class='price'>
+        <view class='realPrice'>￥{{homeData.custominfo.is_vip==1? foodDetail.food_price.vip_price : foodDetail.food_price.original_price}}</view>
+        <view class='originalPrice' hidden='{{homeData.custominfo.is_vip!=1}}'>￥{{foodDetail.food_price.original_price}}</view>
+      </view>
+      <view class='trolley'>
+        <image src='/pages/image/add_trolley.png' class='background'></image>
+        <view class='text'>加入购物车</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='foodInfoEx'>
+    <view class='content'>
+      <view class='title'>商品信息</view>
+      <view class='composition'>
+        <view class='info'>食材：</view>
+        <text class='info' wx:for="{{foodDetail.composition}}" wx:key="" decode="{{true}}" space="{{true}}">{{foodDetail.composition[index]}}&nbsp;&nbsp;</text>
+      </view>
+      <view class='feature'>
+        <view class='info'>特色：</view>
+        <text class='info' wx:for="{{foodDetail.feature}}" wx:key="" decode="{{true}}" space="{{true}}">{{foodDetail.feature[index]}}&nbsp;&nbsp;</text>
+      </view>
+      <view class='praise'>
+        <view class='info'>点赞：{{foodDetail.praise_num}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='evaluation'>
+    <view class='title'>
+      <view class='left'>商品评价</view>
+      <view class='right'>
+        <text>(好评率：<text style='color:#ff4748;'>{{foodDetail.evaluation.good_rate*100}}%</text>)</text>
+        <view class='total'>共N条评论</view>
+      </view>
+    </view>
+
+    <view class='list'>
+      <view class='item'>
+        <image class='img' mode='scaleToFill' src="{{foodDetail.evaluation.customer_info.customer_portrait}}"></image>
+        <view class='info'>
+          <view class='namedate'>
+            <view class='name'>{{foodDetail.evaluation.customer_info.customer_name}}</view>
+            <view class='date'>{{formatTime}}</view>
+          </view>
+          <view class='praise' decode="{{true}}" space="{{true}}"> <image src='/pages/image/detail_good_n.png' style='height:22rpx;width:22rpx;'></image>  赞了该商品</view>
+          <view class='content'>{{foodDetail.evaluation.content}}</view>
+        </view>
+      </view>
+
+      <view class='end'>没有更多评论了~</view>
+    </view>
+  </view>
+</scroll-view>
+<bottom-price hide-trolley="{{hideTrolley}}" trolley-numb="{{trolleyNumb}}" price-value="{{cost}}" next-text="去结算" bindtrolleyevent="onTrolley"/>
