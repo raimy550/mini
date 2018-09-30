@@ -63,28 +63,6 @@ function testData(){
               festival_price: 70.4,
             },
             spec: [
-              {
-                type: 1,
-                title: "口味",
-                list: [
-                  {
-                    title: "口味"
-                  }
-                ]
-              },
-              {
-                type: 2,
-                title: "份量",
-                list: [
-                  {
-                    spec_type: 1,
-                    original_price: 100.1,
-                    discount_price: 80.2,
-                    vip_price: 90.3,
-                    festival_price: 70.4
-                  }
-                ]
-              }
             ],
             composition: [
               "牛肉",
@@ -183,28 +161,6 @@ function testData(){
               festival_price: 70.4,
             },
             spec: [
-              {
-                type: 1,
-                title: "口味",
-                list: [
-                  {
-                    title: "口味"
-                  }
-                ]
-              },
-              {
-                type: 2,
-                title: "份量",
-                list: [
-                  {
-                    spec_type: 1,
-                    original_price: 100.1,
-                    discount_price: 80.2,
-                    vip_price: 90.3,
-                    festival_price: 70.4
-                  }
-                ]
-              }
             ],
             composition: [
               "牛肉",
@@ -311,28 +267,6 @@ function testData(){
               festival_price: 70.4,
             },
             spec: [
-              {
-                type: 1,
-                title: "口味",
-                list: [
-                  {
-                    title: "口味"
-                  }
-                ]
-              },
-              {
-                type: 2,
-                title: "份量",
-                list: [
-                  {
-                    spec_type: 1,
-                    original_price: 100.1,
-                    discount_price: 80.2,
-                    vip_price: 90.3,
-                    festival_price: 70.4
-                  }
-                ]
-              }
             ],
             composition: [
               "牛肉",
@@ -431,28 +365,7 @@ function testData(){
               festival_price: 70.4,
             },
             spec: [
-              {
-                type: 1,
-                title: "口味",
-                list: [
-                  {
-                    title: "口味"
-                  }
-                ]
-              },
-              {
-                type: 2,
-                title: "份量",
-                list: [
-                  {
-                    spec_type: 1,
-                    original_price: 100.1,
-                    discount_price: 80.2,
-                    vip_price: 90.3,
-                    festival_price: 70.4
-                  }
-                ]
-              }
+        
             ],
             composition: [
               "牛肉",
@@ -551,28 +464,7 @@ function testData(){
               festival_price: 70.4,
             },
             spec: [
-              {
-                type: 1,
-                title: "口味",
-                list: [
-                  {
-                    title: "口味"
-                  }
-                ]
-              },
-              {
-                type: 2,
-                title: "份量",
-                list: [
-                  {
-                    spec_type: 1,
-                    original_price: 100.1,
-                    discount_price: 80.2,
-                    vip_price: 90.3,
-                    festival_price: 70.4
-                  }
-                ]
-              }
+            
             ],
             composition: [
               "牛肉",

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bottom-price": "/pages/components/bottom-price/bottom-price"
+  },
+  "navigationBarTitleText": "订单详情"
+}

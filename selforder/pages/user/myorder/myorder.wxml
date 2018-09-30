@@ -1,0 +1,19 @@
+<!--pages/user/myorder/myorder.wxml-->
+<view class='tabOrder'>
+  <view class="tabItem {{tabSel==index? 'tabItemSel':''}}" data-index="{{index}}" wx:for="{{tabs}}" wx:key="" bindtap='onSelTab'>
+    {{tabs[index]}}
+  </view>
+</view>
+
+<swiper interval='5000' class='pageSwiper' current='{{tabSel}}' bindchange='onTabChange'>
+  <block wx:for="{{tabs}}" wx:key="">
+    <swiper-item>
+      <view class='noOrder'>
+        <image src="/pages/image/no_order.png" class='img' />
+        <view style='font-size:30rpx;margin-top:40rpx;'>您还没有相关订单</view>
+        <view style='font-size:30rpx;margin-top:20rpx;color:#989898'>去看看有哪些想吃的</view>
+        <view style='font-size:30rpx;margin-top:20rpx;color:#989898'>{{tabs[index]}}</view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

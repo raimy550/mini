@@ -1,0 +1,39 @@
+/* pages/user/myorder/myorder.wxss */
+.tabOrder{
+  background: #f0f0f0;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.tabOrder .tabItem{
+  font-size: 30rpx;
+  display: inline-block;
+  width: 25%;
+}
+
+.tabOrder .tabItemSel{
+  color: #ff6f06;
+  border-bottom: 5rpx solid #ff6f06;
+}
+
+.pageSwiper{
+  height: 100%;
+  width: 100%;
+  background:white;
+}
+
+.pageSwiper .noOrder{
+  margin-top: 208rpx;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noOrder .img{
+  height: 218rpx;
+  width: 218rpx;
+}
+

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "bottom-price": "/pages/components/bottom-price/bottom-price"
+  },
+    "navigationBarTitleText": "购物车",
+    "navigationBarTextStyle": "black"
+}

@@ -1,10 +1,12 @@
 // pages/user/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    custominfo: {},
     menu:[{
       name:"我的分享",
       nav: "",
@@ -27,7 +29,7 @@ Page({
         icon: "/pages/image/icon_addr.png"
       }, {
         name: "历史订单",
-        nav: "",
+        nav: "/pages/user/myorder/myorder",
         icon: "/pages/image/icon_order.png"
       }, {
         name: "消息中心",
@@ -45,7 +47,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      custominfo: app.globalData.homeData.custominfo
+    })
   },
 
   /**
@@ -97,9 +101,20 @@ Page({
 
   },
 
+  onInfo:function(){
+    wx.navigateTo({
+      url: "/pages/user/userinfo/userinfo",
+    })
+  },
+
   onTurnItem:function(e){
     console.log(e)
-    //e.target.dataset.index
+    var index = e.currentTarget.dataset.index
+    var nav = this.data.menu[index].nav
+    wx.navigateTo({
+      url: nav,
+    })
+    
   }
 
 })

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "bottom-price": "/pages/components/bottom-price/bottom-price"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "欣吃货",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "default"
+}

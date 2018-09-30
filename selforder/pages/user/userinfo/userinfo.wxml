@@ -1,0 +1,33 @@
+<!--pages/user/userinfo/userinfo.wxml-->
+<view class='container'>
+  <view class='itemHead'>
+    <view>头像</view>
+    <image style='position:absolute;right:45rpx;height:128rpx;width:128rpx;' src='/pages/image/no_pic.png'/>
+    <image style='position:absolute;right:0rpx;height:40rpx;width:40rpx;' src='/pages/image/btn_right.png'/>
+  </view>
+
+  <view class='item'>
+    <view>昵称</view>
+    <view style='position:absolute;right:45rpx;color:#656565'>{{custominfo.customer_name}}</view>
+    <image style='position:absolute;right:0rpx;height:40rpx;width:40rpx;' src='/pages/image/btn_right.png'/>
+  </view>
+
+  <view class='item'>
+    <view>手机号</view>
+    <view style='position:absolute;right:45rpx;color:#656565'>{{custominfo.phone}}</view>
+    <image style='position:absolute;right:0rpx;height:40rpx;width:40rpx;' src='/pages/image/btn_right.png'/>
+  </view>
+
+  <view class='item'>
+    <view>生日</view>
+    <view style='position:absolute;right:45rpx;color:#656565'>{{birthday}}</view>
+    <image style='position:absolute;right:0rpx;height:40rpx;width:40rpx;' src='/pages/image/btn_right.png'/>
+  </view>
+
+  <view class='item'>
+    <view>性别</view>
+    <view style='position:absolute;right:45rpx;color:#656565'>{{custominfo.sex==1?'男':'女'}}</view>
+    <image style='position:absolute;right:0rpx;height:40rpx;width:40rpx;' src='/pages/image/btn_right.png'/>
+  </view>
+
+</view>

@@ -1,8 +1,8 @@
 <template name="trolley_adddel">
  <view class="food-numb">
-                <image src='../../image/sub.png' class="remove" bindtap="removeFromTrolley" hidden="{{item.numb==0}}" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
+                <image src='/pages/image/sub.png' class="remove" bindtap="removeFromTrolley" hidden="{{item.numb==0}}" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
                 <text class="text" hidden="{{item.numb==0}}">{{item.numb}}</text>
-                <image src='../../image/add.png' class="add" bindtap="addToTrolley" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
+                <image src='/pages/image/add.png' class="add" bindtap="addToTrolley" data-menuindex="{{menuindex}}" data-index="{{index}}"></image>
               </view>
 </template>
 

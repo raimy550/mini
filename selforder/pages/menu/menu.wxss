@@ -1,0 +1,317 @@
+/* pages/menu/menu.wxss */
+@import "/pages/template/commlayouts.wxss";
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.adcontent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 23%;
+}
+
+.adcontent .swiper {
+  width: 100%;
+  height: 75%;
+}
+
+.swiper .item {
+  width: 100%;
+  height: 100%;
+}
+
+.adcontent .info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+}
+
+.info .position {
+  color: #ff6f06;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  text-align: center;
+}
+
+.info .content {
+  color: #656565;
+  margin-left: 50rpx;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.menuPay{
+  display: flex;
+  height: 77%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.menuPay .menucontent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  background: white;
+}
+
+.menucontent .menuList {
+  display: flex;
+  flex-direction: column;
+  width: 125rpx;
+  height: 100%;
+  background: #f1f1f1;
+  align-items: center;
+}
+
+.menuList .menu {
+  height: 110rpx;
+  width: 125rpx;
+  position: relative;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #656565;
+  border-bottom: 1rpx solid #dadada;
+}
+
+.menu .menuNumb, .menuselected .menuNumb{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  background: red;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: white;
+  text-align: center;
+  border-radius: 30rpx;
+  right: 5rpx;
+  top: 5rpx;
+}
+
+.menuList .menuselected {
+  height: 110rpx;
+  width: 125rpx;
+  position: relative;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #323232;
+  font-weight: bold;
+  border-bottom: 1rpx solid #dadada;
+  background-color: white;
+}
+
+.menucontent .foodList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+.foodList .typeName {
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+  height: 5%;
+  width: 100%;
+  font-size: 30rpx;
+  background: white;
+  color: #323232;
+  font-weight: bold;
+}
+
+.foodList .srcollFood {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  width: 100%;
+  background: white;
+}
+
+.srcollFood .title {
+  padding: 15rpx;
+  height: 65rpx;
+  line-height: 30rpx;
+  font-size: 29rpx;
+  font-weight: bold;
+}
+
+.srcollFood .food {
+  position: relative;
+  display: flex;
+  height: 201rpx;
+  background: white;
+}
+
+.food .img {
+  margin-left: 10rpx;
+  width: 136rpx;
+  height: 136rpx;
+}
+
+.food .food-info {
+  position: relative;
+  padding-left: 15rpx;
+  height: 100%;
+}
+
+.food-info .name {
+  font-size: 30rpx;
+  color: #323232;
+  font-weight: bold;
+}
+
+.food-info .sales {
+  display: flex;
+  font-size: 22rpx;
+  color: #989898;
+}
+
+.food-info .priceType {
+  margin-top: 20rpx;
+  height: 25rpx;
+  width: 83rpx;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 25rpx;
+  color: #ff6f06;
+  border-radius: 5rpx;
+  border: 1rpx solid #ff6f06;
+}
+
+.food-info .price {
+  position: absolute;
+  bottom: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height:40rpx; 
+  display: flex;
+  
+}
+
+.price .realPrice{
+  color: #ff3637;
+  font-size: 24rpx;
+  font-weight:bold;
+}
+
+.price .originalPrice{
+  padding-top: 3rpx;
+  padding-left: 10rpx;
+  color: #989898;
+  font-size: 20rpx;
+  text-decoration: line-through;
+}
+
+.spec{
+  font-size:26rpx;
+  color:#ffffff;
+  background:#ff6f06;
+  border-radius:30rpx;
+  height: 52rpx;
+  width:128rpx;
+  line-height: 52rpx;
+  text-align: center;
+}
+
+.popup .specContent{
+  position: relative;
+  margin-left: 53rpx;
+  margin-right: 53rpx;
+  margin-top: 305rpx;
+  padding: 38rpx;
+  height: 628rpx;
+  background: white;
+  border-radius: 10rpx;
+}
+
+.specContent .specTitle{
+  padding-top: 2rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.specTitle .specClose{
+  width: 82rpx;
+  height: 82rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+
+.specContent .specItem{
+  margin-bottom: 50rpx;
+  font-size: 28rpx;
+}
+
+.specItem .content{
+  display: flex;
+}
+
+.specItem .content .item{
+  height: 43rpx;
+  width: 124rpx;
+  margin-right: 12rpx;
+  margin-top: 22rpx;
+  line-height: 43rpx;
+  text-align: center;
+  border: 1rpx solid #d7d7d7;
+  border-radius: 10rpx;
+}
+
+.specContent .specTrolley{
+  position: absolute;
+  left: 0rpx;
+  bottom: 0rpx;
+  height: 100rpx;
+  width: 100%;
+  background: #F1F1F1;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.specTrolley .trolleyContent{
+  padding-left: 38rpx;
+  padding-right: 38rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 58rpx;
+  text-align: center;
+}
+
+.trolleyContent .btnTrolley{
+  position:relative;
+  height:58rpx;
+  width:230rpx;
+}
+
+.btnTrolley .img{
+  height:58rpx;
+  width:230rpx;
+}
+
+
+.btnTrolley .trolleyText{
+  position: absolute;
+  height: 58rpx;
+  font-size: 26rpx;
+  line-height: 58rpx;
+  width: 100%;
+  text-align: center;
+  color: white;
+  top: 0rpx;
+  left: 0rpx;
+  padding-left: 20rpx;
+}
+
+
+
+

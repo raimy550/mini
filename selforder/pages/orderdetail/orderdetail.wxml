@@ -1,0 +1,102 @@
+<!--pages/orderdetail/orderdetail.wxml-->
+<scroll-view class='scrollContent' scroll-y="true">
+  <view class='content'>
+    <view class='title'>
+      <view class='left'>已选择餐品</view>
+      <view>C26</view>
+      <view class='right'>人数 2</view>
+    </view>
+
+    <view class='category'>在店吃</view>
+    <view class='item'>
+      <view class='food'>
+        <image class='img' src='/pages/image/no_pic.png' />
+        <view class='name'>牛肉面</view>
+      </view>
+      <view class='numb'>1</view>
+      <view class='unitPrice'>￥15</view>
+    </view>
+
+    <view class='category'>打包</view>
+    <view class='item'>
+      <view class='food'>
+        <image class='img' src='/pages/image/no_pic.png' />
+        <view class='name'>牛肉面</view>
+      </view>
+      <view class='numb'>1</view>
+      <view class='unitPrice'>￥15</view>
+    </view>
+
+    <view class='category'>其他</view>
+    <view class='otherItem'>
+      <view>餐盒</view>
+      <view style='font-weight:bold'>￥1</view>
+    </view>
+    <view class='otherItem'>
+      <view>餐位费</view>
+      <view style='font-weight:bold'>￥1</view>
+    </view>
+    <view style='height:20rpx;width:100%;border-bottom: 1rpx dashed #f1f1f1;margin-bottom:30rpx;' />
+    <view class='otherItem'>
+      <view>餐品共 2 份</view>
+      <view style='font-weight:bold'>总价 ￥96</view>
+    </view>
+  </view>
+
+  <view class='contentEx'>
+    <view class='payWay'>
+      <view style='font-weight:bold'>支付方式</view>
+      <view style='display:flex;align-items: center;'>
+        <view>微信支付</view>
+        <image style='height:58rpx;width:58rpx;' src='/pages/image/btn_right.png' />
+      </view>
+    </view>
+
+    <view class='bill'>
+      <view style='font-weight:bold'>发票</view>
+      <switch></switch>
+    </view>
+
+    <view class='billUpdate'>
+      <view>raimy</view>
+      <view style='display:flex;align-items: center;'>
+        <view>修改</view>
+        <image style='height:58rpx;width:58rpx;' src='/pages/image/btn_right.png' />
+      </view>
+    </view>
+
+    <view style='height:20rpx;width:100%;border-bottom: 1rpx dashed #f1f1f1;' />
+
+    <view class='payWay'>
+      <view style='font-weight:bold'>备注</view>
+      <view style='display:flex;align-items: center;'>
+        <view>XXXXXXXXXXXXXXXX</view>
+        <image style='height:58rpx;width:58rpx;' src='/pages/image/btn_right.png' />
+      </view>
+    </view>
+
+  </view>
+</scroll-view>
+
+<view hidden='{{!showPopUp}}' class='popup'>
+  <view class='box'>
+    <view style='font-weight:bold;text-align:center;'>请输入手机号码以获取订单信息</view>
+    <view class='input'>
+      <image style='height:47rpx;width:32rpx;margin-right:24rpx;' src='/pages/image/icon_phone.png' />
+      <input placeholder-style='color:#989898;' placeholder="请填写手机号码"></input>
+    </view>
+    <view class='input'>
+      <image style='height:47rpx;width:32rpx;margin-right:24rpx;' src='/pages/image/icon_code.png' />
+      <input placeholder-style='color:#989898;' placeholder="请填写验证码"></input>
+      <view class='code'>获取验证码</view>
+    </view>
+    <view class='btn' bindtap='onCheckSure'>确定</view>
+  </view>
+  <view class='close' bindtap='onClosePopUp'>
+    <image style='height:88rpx;width:88rpx;' src='/pages/image/btn_close.png'></image>
+  </view>
+
+</view>
+
+
+<bottom-price hide-trolley="{{true}}" trolley-numb="{{4}}" price-value="{{886.9}}" next-text="马上付款" bindtrolleyevent="onTrolley" />

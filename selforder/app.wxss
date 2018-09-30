@@ -17,4 +17,15 @@ page {
   color: transparent;
 }
 
+:host{
+  color: #323232
+}
 
+
+.popup{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index:999;
+  background-color:rgba(15, 15, 26, 0.7);
+}

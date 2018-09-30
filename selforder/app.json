@@ -1,11 +1,17 @@
 {
   "pages": [
-    "pages/main/menu/menu",
-    "pages/trolley/index/index",
+    
+    "pages/menu/menu",
+    "pages/trolley/trolley",
     "pages/user/user",
     "pages/index/index",
-    "pages/main/fooddetail/fooddetail",
-    "pages/user/index/index"
+    "pages/fooddetail/fooddetail",
+    "pages/user/index/index",
+    "pages/orderdetail/orderdetail",
+    "pages/orderstatus/orderstatus",
+    "pages/user/userinfo/userinfo",
+    "pages/user/myorder/myorder"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,7 +23,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/main/menu/menu",
+        "pagePath": "pages/menu/menu",
         "text": "首页",
         "iconPath": "pages/image/ic_menu_choice_nor.png",
         "selectedIconPath": "pages/image/ic_menu_choice_pressed.png"
